@@ -43,6 +43,14 @@ def update_files(old_v, new_v):
         with open(file_path, "w") as f:
             f.write(new_content)
 
+def tag(new_v):
+    try:
+        v = f"v{new_v}"
+        print("✅ Git tag successful.")
+        subprocess.run(["git", "tag"] + v, check=True)
+    except subprocess.CalledProcessError:
+        print("⚠️  Git tag failed")
+
 def git_commit_prompt(old_v, new_v):
     """Stages files and opens the editor with a pre-filled commit message."""
     try:
@@ -56,8 +64,9 @@ def git_commit_prompt(old_v, new_v):
         # The editor will show the message and allow the user to edit or abort (by clearing the message)
         subprocess.run(["git", "commit", "-e", "-m", commit_msg], check=True)
         print("✅ Git commit successful.")
+        tag(new_v)
     except subprocess.CalledProcessError:
-        print("⚠️ Git command failed or commit was aborted by user.")
+        print("⚠️  Git command failed or commit was aborted by user.")
 
 def main():
     parser = argparse.ArgumentParser(description="Bump version and stage for Git.")
