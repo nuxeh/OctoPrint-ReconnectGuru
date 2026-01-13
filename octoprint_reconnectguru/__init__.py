@@ -16,7 +16,6 @@ from octoprint.plugin import (
 )
 from octoprint.events import Events
 
-
 class NullLogger:
     def section(self, *_, **__): pass
     def subsection(self, *_, **__): pass
@@ -27,7 +26,6 @@ class NullLogger:
     def warning(self, *_, **__): pass
     def error(self, *_, **__): pass
     def kv(self, *_, **__): pass
-
 
 class PluginLogger:
     def __init__(self, logger):
@@ -59,7 +57,6 @@ class PluginLogger:
 
     def kv(self, key, value):
         self._logger.info(f"[{key}] {value}")
-
 
 class ReconnectGuruPlugin(
     SettingsPlugin,
