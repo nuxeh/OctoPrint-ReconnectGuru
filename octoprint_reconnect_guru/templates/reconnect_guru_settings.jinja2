@@ -1,3 +1,9 @@
+<h4>Reconnect Guru</h4>
+
+Reconnect Guru meditates on <code>udev</code> device connection events,
+telling OctoPrint to reconnect the serial connection to the printer when a
+suitable device is detected.
+
 <div class="control-group">
     <label class="checkbox">
         <input type="checkbox"
@@ -18,7 +24,7 @@
 <h4>Device Filters</h4>
 <p class="help-block">
     Leave filters empty to connect to any detected device.
-    Specify filters to only connect to devices matching ALL specified criteria.
+    Specify filters to only connect to devices matching all specified criteria.
 </p>
 
 <div class="control-group">
@@ -37,9 +43,6 @@
     <label>Serial Number</label>
     <input type="text" class="input-medium"
            data-bind="value: settings.plugins.reconnect_guru.filter_serial">
-    <p class="help-block">
-        Match device serial number (leave empty if device has no serial)
-    </p>
 </div>
 
 <div class="control-group">
@@ -51,6 +54,7 @@
     </p>
 </div>
 
+<h4>Other</h4>
 <div class="control-group">
     <label class="checkbox">
         <input type="checkbox"
