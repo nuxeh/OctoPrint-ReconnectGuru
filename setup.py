@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="OctoPrint-ReconnectGuru",
-    version="0.0.0",
+    version="0.0.1",
     description="Automatically reconnects to printers detected via udev events",
     long_description=(
         "An OctoPrint plugin that monitors udev events for USB device connections "
