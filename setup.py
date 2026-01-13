@@ -14,7 +14,7 @@ setup(
     url="https://github.com/nuxeh/OctoPrint-ReconnectGuru",
     license="ISC",
     python_requires=">=3.7,<4",
-    packages=["octoprint_reconnectguru"],
+    packages=["octoprint_reconnect_guru"],
     include_package_data=True,
     install_requires=[
         "pyudev>=0.22",
@@ -22,7 +22,7 @@ setup(
     ],
     entry_points={
         "octoprint.plugin": [
-            "reconnectguru = octoprint_reconnectguru"
+            "reconnectguru = octoprint_reconnect_guru"
         ]
     },
     zip_safe=False,

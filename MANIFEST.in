@@ -1,1 +1,1 @@
-recursive-include octoprint_reconnectguru/templates *
+recursive-include octoprint_reconnect_guru/templates *

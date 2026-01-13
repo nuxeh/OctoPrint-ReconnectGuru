@@ -7,7 +7,7 @@ import subprocess
 VERSION_FILE = "VERSION"
 TARGET_FILES = [
     VERSION_FILE,
-    "octoprint_reconnectguru/__init__.py",
+    "octoprint_reconnect_guru/__init__.py",
     "setup.py"
 ]
 
