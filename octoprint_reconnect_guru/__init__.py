@@ -359,8 +359,10 @@ class ReconnectGuruPlugin(
     def get_template_configs(self):
         return [dict(type="settings", autoescape=True, custom_bindings=False)]
 
+    def is_template_autoescaped(self):
+        return True
 
-__plugin_name__ = "ReconnectGuru"
+__plugin_name__ = "Reconnect Guru"
 __plugin_author__ = "Ed Cragg"
 __plugin_description__ = "Automatically reconnects to printers detected via udev events"
 __plugin_version__ = "0.0.2"
