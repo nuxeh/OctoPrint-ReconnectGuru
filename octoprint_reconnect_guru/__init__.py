@@ -1,4 +1,4 @@
-import time
+mport time
 import logging
 import os
 import threading
@@ -365,7 +365,7 @@ class ReconnectGuruPlugin(
 __plugin_name__ = "Reconnect Guru"
 __plugin_author__ = "Ed Cragg"
 __plugin_description__ = "Automatically reconnects to printers detected via udev events"
-__plugin_version__ = "0.0.2"
+__plugin_version__ = "0.0.3"
 __plugin_license__ = "ISC"
 __plugin_pythoncompat__ = ">=3.7,<4"
 __plugin_icon__ = "plug"
