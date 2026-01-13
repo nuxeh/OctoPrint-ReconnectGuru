@@ -232,6 +232,11 @@ class ReconnectGuruPlugin(
 
     def _handle_device_added(self, device):
         """Handle a new device being added"""
+
+        if not self._settings.get_boolean(["enabled"]):
+            self.log.info("Plugin disabled, skipping reconnection")
+            return
+
         try:
             # Extract device information
             vendor = device.get('ID_VENDOR_ID', 'N/A')
