@@ -22,7 +22,7 @@ setup(
     ],
     entry_points={
         "octoprint.plugin": [
-            "reconnectguru = octoprint_reconnect_guru"
+            "reconnect_guru = octoprint_reconnect_guru"
         ]
     },
     zip_safe=False,
