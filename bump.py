@@ -47,7 +47,7 @@ def tag(new_v):
     try:
         v = f"v{new_v}"
         print("✅ Git tag successful.")
-        subprocess.run(["git", "tag"] + v, check=True)
+        subprocess.run(["git", "tag", v], check=True)
     except subprocess.CalledProcessError:
         print("⚠️  Git tag failed")
 
