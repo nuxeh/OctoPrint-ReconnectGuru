@@ -119,6 +119,7 @@ class ReconnectGuruPlugin(
             filter_product_id="",
             filter_serial="",
             filter_port="",
+            message_on_connect=False,
         )
 
     def on_settings_save(self, data):
@@ -138,6 +139,10 @@ class ReconnectGuruPlugin(
         self.log.kv("Filter Product ID", self._settings.get(["filter_product_id"]) or "(any)")
         self.log.kv("Filter Serial", self._settings.get(["filter_serial"]) or "(any)")
         self.log.kv("Filter Port", self._settings.get(["filter_port"]) or "(any)")
+        self.log.kv(
+            "Message (M117) on connect",
+            self._settings.get_boolean(["message_on_connect"])
+        )
 
     # -------------------------------------------------------------------------
     # Startup / Shutdown
@@ -330,6 +335,11 @@ class ReconnectGuruPlugin(
                     test_serial = serial.Serial(device_node, timeout=1)
 
                 if test_serial.is_open:
+                    # naughtily send a little message on connect
+                    if self._settings.get_boolean(["message_on_connect"]):
+                        test_serial.write(b"M117 Connecting...\n")
+                        test_serial.write(b"G4 1000\n")
+                        test_serial.write(f"M117 {device_node}".encode('ascii'))
                     test_serial.close()
                     self.log.info("Port is accessible")
                 else:
