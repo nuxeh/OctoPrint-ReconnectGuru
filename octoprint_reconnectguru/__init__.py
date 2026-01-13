@@ -236,9 +236,17 @@ class ReconnectGuruPlugin(
             device_node = device.device_node
 
             # Extract port from USB path
+            # USB paths follow format: platform-XXXX-usb-BUS:PORT:INTERFACE
+            # We want the PORT part (e.g., "1.2" or "1.1.3")
             port = "Unknown"
-            if "usb-0:" in usb_path:
-                port = usb_path.split("usb-0:")[1].split(":")[0]
+            if ":" in usb_path:
+                try:
+                    # Split by colons, second element is the port
+                    parts = usb_path.split(":")
+                    if len(parts) >= 2:
+                        port = parts[1]
+                except (IndexError, ValueError):
+                    port = "Unknown"
 
             self.log.section("USB Device Added")
             self.log.kv("Device Node", device_node)
