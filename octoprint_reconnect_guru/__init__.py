@@ -337,9 +337,11 @@ class ReconnectGuruPlugin(
                 if test_serial.is_open:
                     # naughtily send a little message on connect
                     if self._settings.get_boolean(["message_on_connect"]):
+                        test_serial.write(b"G4 1000\n")
                         test_serial.write(b"M117 Connecting...\n")
                         test_serial.write(b"G4 1000\n")
-                        test_serial.write(f"M117 {device_node}".encode('ascii'))
+                        test_serial.write(f"M117 {device_node}\n".encode('ascii'))
+                        test_serial.write(b"G4 1000\n")
                     test_serial.close()
                     self.log.info("Port is accessible")
                 else:
